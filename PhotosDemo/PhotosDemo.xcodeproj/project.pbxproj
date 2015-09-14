@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AD5ABE41B94433000A27437 /* AssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5ABE01B94433000A27437 /* AssetCell.swift */; };
+		2AD5ABE51B94433000A27437 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5ABE11B94433000A27437 /* AssetsViewController.swift */; };
+		2AD5ABE61B94433000A27437 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5ABE21B94433000A27437 /* CheckMark.swift */; };
+		2AD5ABE71B94433000A27437 /* SelectedAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5ABE31B94433000A27437 /* SelectedAssets.swift */; };
 		2AD5DC881B8FEB1E00016965 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5DC871B8FEB1E00016965 /* AppDelegate.swift */; };
 		2AD5DC8A1B8FEB1E00016965 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5DC891B8FEB1E00016965 /* ViewController.swift */; };
 		2AD5DC8D1B8FEB1E00016965 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD5DC8B1B8FEB1E00016965 /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AD5ABE01B94433000A27437 /* AssetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
+		2AD5ABE11B94433000A27437 /* AssetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
+		2AD5ABE21B94433000A27437 /* CheckMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
+		2AD5ABE31B94433000A27437 /* SelectedAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedAssets.swift; sourceTree = "<group>"; };
 		2AD5DC821B8FEB1E00016965 /* PhotosDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD5DC861B8FEB1E00016965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AD5DC871B8FEB1E00016965 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +87,10 @@
 			children = (
 				2AD5DC871B8FEB1E00016965 /* AppDelegate.swift */,
 				2AD5DC891B8FEB1E00016965 /* ViewController.swift */,
+				2AD5ABE01B94433000A27437 /* AssetCell.swift */,
+				2AD5ABE11B94433000A27437 /* AssetsViewController.swift */,
+				2AD5ABE21B94433000A27437 /* CheckMark.swift */,
+				2AD5ABE31B94433000A27437 /* SelectedAssets.swift */,
 				2AD5DC8B1B8FEB1E00016965 /* Main.storyboard */,
 				2AD5DC8E1B8FEB1E00016965 /* Images.xcassets */,
 				2AD5DC901B8FEB1E00016965 /* LaunchScreen.xib */,
@@ -212,8 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD5ABE41B94433000A27437 /* AssetCell.swift in Sources */,
+				2AD5ABE71B94433000A27437 /* SelectedAssets.swift in Sources */,
 				2AD5DC8A1B8FEB1E00016965 /* ViewController.swift in Sources */,
 				2AD5DC881B8FEB1E00016965 /* AppDelegate.swift in Sources */,
+				2AD5ABE51B94433000A27437 /* AssetsViewController.swift in Sources */,
+				2AD5ABE61B94433000A27437 /* CheckMark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +427,7 @@
 				2AD5DCA31B8FEB1F00016965 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AD5DCA41B8FEB1F00016965 /* Build configuration list for PBXNativeTarget "PhotosDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +436,7 @@
 				2AD5DCA61B8FEB1F00016965 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <CoreGraphics/CoreGraphics.h>
+#import "CKHWaterMask.h"
 
 @interface ViewController ()
 
@@ -29,30 +30,47 @@
 - (IBAction)showAction:(id)sender {
     UIImage *img1 = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tortiter" ofType:@"jpg"]];
     UIImage *img2 = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"heart" ofType:@"png"]];
-    UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectMake(50, 50, 500, 500)];
-    iv.image = [self image:img1 waterMask:img2];
+    UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectMake(0, 20, 768, 700)];
+    CKHWaterMaskConfig *config = [[CKHWaterMaskConfig alloc]init];
+    config.waterMaskRect = CGRectMake(0, 100, 100, 100);
+    iv.image = [CKHWaterMask image:img1 waterMask:img2 text:@"呵呵" withConfig:nil];
+//    iv.image = [self image:img1 waterMask:img2];
+    iv.contentMode = UIViewContentModeScaleAspectFit;
+    iv.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:iv];
+    
+    
 }
 
 - (UIImage *)image:(UIImage *)baseImage waterMask:(UIImage *)maskImage{
-    
-    
     CGSize size = baseImage.size;
+    NSLog(@"baseImage=%@",NSStringFromCGSize(size));
+    CGRect rect1 = CGRectMake(0, 0, size.width, size.height);
+    CGRect rect2 = CGRectMake(size.width - 50, 0, 50, 50);
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context, 0.0, self.view.bounds.size.height);
+    //合成
+    CGContextTranslateCTM(context, 0.0, size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
     CGImageRef imgRef1 = baseImage.CGImage;
     CGImageRef imgRef2 = maskImage.CGImage;
-    CGRect rect1 = CGRectMake(0, 0, size.width, size.height);
-    CGRect rect2 = CGRectMake(size.width - maskImage.size.width, size.height - maskImage.size.height, maskImage.size.width, maskImage.size.height);
     CGContextDrawImage(context, rect1, imgRef1);
     CGContextDrawImage(context, rect2, imgRef2);
+    //打文字
+    CGContextTranslateCTM(context, 0.0, size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"yyyy-MM-dd mm:hh:ss";
+    NSString *strDate = [formatter stringFromDate:date];
+    UIFont *font = [UIFont systemFontOfSize:40];
+    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,[UIColor redColor],NSForegroundColorAttributeName, nil];
+    CGPoint point = CGPointMake(0, size.height - 40);
+    [strDate drawAtPoint:point withAttributes:att];
+    
     
     UIImage *waterMaskImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    
     UIImageWriteToSavedPhotosAlbum(waterMaskImage, nil, nil, nil);
     
     return waterMaskImage;

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A3602D61BAAAF2800797163 /* CKHWaterMask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3602D51BAAAF2800797163 /* CKHWaterMask.m */; };
+		2A3602D91BAAB19C00797163 /* CKHWaterMaskConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3602D81BAAB19C00797163 /* CKHWaterMaskConfig.m */; };
 		2AD69B381BAA93B800184C3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD69B371BAA93B800184C3F /* main.m */; };
 		2AD69B3B1BAA93B800184C3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD69B3A1BAA93B800184C3F /* AppDelegate.m */; };
 		2AD69B3E1BAA93B900184C3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD69B3D1BAA93B900184C3F /* ViewController.m */; };
@@ -30,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A3602D41BAAAF2800797163 /* CKHWaterMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKHWaterMask.h; sourceTree = "<group>"; };
+		2A3602D51BAAAF2800797163 /* CKHWaterMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKHWaterMask.m; sourceTree = "<group>"; };
+		2A3602D71BAAB19C00797163 /* CKHWaterMaskConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKHWaterMaskConfig.h; sourceTree = "<group>"; };
+		2A3602D81BAAB19C00797163 /* CKHWaterMaskConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKHWaterMaskConfig.m; sourceTree = "<group>"; };
 		2AD69B321BAA93B800184C3F /* MaskPicture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaskPicture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD69B361BAA93B800184C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AD69B371BAA93B800184C3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +98,10 @@
 				2AD69B3A1BAA93B800184C3F /* AppDelegate.m */,
 				2AD69B3C1BAA93B900184C3F /* ViewController.h */,
 				2AD69B3D1BAA93B900184C3F /* ViewController.m */,
+				2A3602D41BAAAF2800797163 /* CKHWaterMask.h */,
+				2A3602D51BAAAF2800797163 /* CKHWaterMask.m */,
+				2A3602D71BAAB19C00797163 /* CKHWaterMaskConfig.h */,
+				2A3602D81BAAB19C00797163 /* CKHWaterMaskConfig.m */,
 				2AD69B5B1BAA9A0600184C3F /* heart.png */,
 				2AD69B5C1BAA9A0600184C3F /* tortiter.jpg */,
 				2AD69B3F1BAA93B900184C3F /* Main.storyboard */,
@@ -233,6 +243,8 @@
 			files = (
 				2AD69B3E1BAA93B900184C3F /* ViewController.m in Sources */,
 				2AD69B3B1BAA93B800184C3F /* AppDelegate.m in Sources */,
+				2A3602D91BAAB19C00797163 /* CKHWaterMaskConfig.m in Sources */,
+				2A3602D61BAAAF2800797163 /* CKHWaterMask.m in Sources */,
 				2AD69B381BAA93B800184C3F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +376,7 @@
 				INFOPLIST_FILE = MaskPicture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -374,6 +387,7 @@
 				INFOPLIST_FILE = MaskPicture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -430,6 +444,7 @@
 				2AD69B571BAA93B900184C3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AD69B581BAA93B900184C3F /* Build configuration list for PBXNativeTarget "MaskPictureTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +453,7 @@
 				2AD69B5A1BAA93B900184C3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

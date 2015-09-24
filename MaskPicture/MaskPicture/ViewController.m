@@ -34,12 +34,18 @@
     CKHWaterMaskConfig *config = [[CKHWaterMaskConfig alloc]init];
     config.waterMaskRect = CGRectMake(0, 100, 100, 100);
     iv.image = [CKHWaterMask image:img1 waterMask:img2 text:@"呵呵" withConfig:nil];
-//    iv.image = [self image:img1 waterMask:img2];
+    iv.image = [self image:img1 waterMask:img2];
     iv.contentMode = UIViewContentModeScaleAspectFit;
     iv.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:iv];
     
-    
+//    [NSThread sleepForTimeInterval:2.0];
+//    
+//    UIView *v = [self.view snapshotViewAfterScreenUpdates:YES];
+//    UIGraphicsBeginImageContextWithOptions(v.bounds.size, YES, 0);
+//    [v  drawViewHierarchyInRect:v.bounds afterScreenUpdates:YES];
+//    UIImage *ivi = UIGraphicsGetImageFromCurrentImageContext();
+//    iv.image = ivi;
 }
 
 - (UIImage *)image:(UIImage *)baseImage waterMask:(UIImage *)maskImage{

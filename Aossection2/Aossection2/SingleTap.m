@@ -7,27 +7,39 @@
 //
 
 #import "SingleTap.h"
-#import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
 
-@interface UIButton (SingleTapButton)
-@property (assign, nonatomic) NSTimeInterval *interval;
+static const char *associatedKey = "singleTap";
 
-- (void)SingleTap_sendAction:(SEL) sel to:(id)target forEvent:(UIEvent *)event;
-@end
+@implementation UIControl (SingleTapButton)
 
-@implementation UIButton (SingleTapButton)
+- (void)setIsIgnoreEvent:(BOOL)isIgnoreEvent{
+    objc_setAssociatedObject(self, "isIgnoreEvent", @(isIgnoreEvent), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (BOOL)isIgnoreEvent{
+    return [objc_getAssociatedObject(self, "isIgnoreEvent") boolValue];
+}
 
+- (NSTimeInterval)tapInterval{
+    return [objc_getAssociatedObject(self, associatedKey) doubleValue];
+}
+
+- (void)setTapInterval:(NSTimeInterval)tapInterval{
+    objc_setAssociatedObject(self, associatedKey, @(tapInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 - (void)SingleTap_sendAction:(SEL)sel to:(id)target forEvent:(UIEvent *)event{
-    NSLog(@"点击!");
+    if (self.isIgnoreEvent) return;
+    if (self.tapInterval > 0) {
+        NSLog(@"######点击!");
+        self.isIgnoreEvent = YES;
+        [self performSelector:@selector(setIsIgnoreEvent:) withObject:@(NO) afterDelay:self.tapInterval];
+    }
     [self SingleTap_sendAction:sel to:target forEvent:event];
 }
 
-@end
 
-@implementation SingleTap
 + (void)load{
     [super load];
     Method tapAction = class_getInstanceMethod([UIControl class], @selector(sendAction:to:forEvent:));

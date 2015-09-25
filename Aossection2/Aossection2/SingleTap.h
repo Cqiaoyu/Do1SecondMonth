@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+@interface UIControl (SingleTapButton)
+@property (assign, nonatomic) BOOL isIgnoreEvent;
+@property (assign, nonatomic) NSTimeInterval tapInterval;
 
-@interface SingleTap : NSObject
-
+- (void)SingleTap_sendAction:(SEL) sel to:(id)target forEvent:(UIEvent *)event;
 @end

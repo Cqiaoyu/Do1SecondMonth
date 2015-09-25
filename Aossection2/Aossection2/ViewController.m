@@ -7,11 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "SingleTap.h"
 
 
 
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btnTest;
 
 @end
 
@@ -20,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    _btnTest.tapInterval = 5.0;
 }
 
 - (void)didReceiveMemoryWarning {

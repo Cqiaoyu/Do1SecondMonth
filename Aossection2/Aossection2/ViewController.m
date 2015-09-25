@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _btnTest.tapInterval = 5.0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)tapAction:(id)sender {
-    NSLog(@"###");
+    NSLog(@"###可以操作");
 }
 
 @end

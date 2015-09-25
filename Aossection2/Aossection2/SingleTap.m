@@ -10,40 +10,44 @@
 #import <objc/runtime.h>
 
 
-static const char *associatedKey = "singleTap";
 
+static const char *lastTapDateKey = "lastTapDate";
+static const char *timeIntervalKey = "timeInterval";
+static NSDate *lastTapDate;
 @implementation UIControl (SingleTapButton)
 
-- (void)setIsIgnoreEvent:(BOOL)isIgnoreEvent{
-    objc_setAssociatedObject(self, "isIgnoreEvent", @(isIgnoreEvent), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setTimeInterval:(NSTimeInterval)timeInterval{
+    objc_setAssociatedObject(self, timeIntervalKey, @(timeInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (BOOL)isIgnoreEvent{
-    return [objc_getAssociatedObject(self, "isIgnoreEvent") boolValue];
-}
-
-- (NSTimeInterval)tapInterval{
-    return [objc_getAssociatedObject(self, associatedKey) doubleValue];
+- (NSTimeInterval)timeInterval{
+    return [objc_getAssociatedObject(self, timeIntervalKey) doubleValue];
 }
 
-- (void)setTapInterval:(NSTimeInterval)tapInterval{
-    objc_setAssociatedObject(self, associatedKey, @(tapInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setLastTapDate:(NSDate *)lastTapDate{
+    objc_setAssociatedObject(self, lastTapDateKey, lastTapDate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSDate *)lastTapDate{
+    return objc_getAssociatedObject(self, lastTapDateKey);
 }
 
 - (void)SingleTap_sendAction:(SEL)sel to:(id)target forEvent:(UIEvent *)event{
-    if (self.isIgnoreEvent) return;
-    if (self.tapInterval > 0) {
-        NSLog(@"######点击!");
-        self.isIgnoreEvent = YES;
-        [self performSelector:@selector(setIsIgnoreEvent:) withObject:@(NO) afterDelay:self.tapInterval];
-    }
+    NSDate *now = [NSDate date];
+    NSTimeInterval interval = [now timeIntervalSinceDate:lastTapDate];
+    lastTapDate = now;
+    NSLog(@"间隔:%f",interval);
+    if (self.timeInterval == 0.0) self.timeInterval = 5.0;
+    if (interval < self.timeInterval && interval) return;
     [self SingleTap_sendAction:sel to:target forEvent:event];
 }
+@end
 
-
+@implementation SingleTap
 + (void)load{
     [super load];
     Method tapAction = class_getInstanceMethod([UIControl class], @selector(sendAction:to:forEvent:));
     Method thenAction = class_getInstanceMethod([UIButton class], @selector(SingleTap_sendAction:to:forEvent:));
     method_exchangeImplementations(tapAction, thenAction);
 }
+
 @end
+

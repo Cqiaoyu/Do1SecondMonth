@@ -29,7 +29,10 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)tapAction:(id)sender {
-    NSLog(@"###可以操作");
+    NSLog(@"###1可以操作");
+}
+- (IBAction)tap2Action:(id)sender {
+    NSLog(@"$$$$2可以操作");
 }
 
 @end

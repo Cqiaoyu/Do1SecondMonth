@@ -13,5 +13,5 @@
 
 @interface UIControl (SingleTapButton)
 @property (assign, nonatomic) NSTimeInterval timeInterval;
-
+@property (strong, nonatomic) NSDate *lastTapDate;
 @end

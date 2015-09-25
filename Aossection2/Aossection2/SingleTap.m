@@ -13,7 +13,7 @@
 
 static const char *lastTapDateKey = "lastTapDate";
 static const char *timeIntervalKey = "timeInterval";
-static NSDate *lastTapDate;
+
 @implementation UIControl (SingleTapButton)
 
 - (void)setTimeInterval:(NSTimeInterval)timeInterval{
@@ -32,8 +32,8 @@ static NSDate *lastTapDate;
 
 - (void)SingleTap_sendAction:(SEL)sel to:(id)target forEvent:(UIEvent *)event{
     NSDate *now = [NSDate date];
-    NSTimeInterval interval = [now timeIntervalSinceDate:lastTapDate];
-    lastTapDate = now;
+    NSTimeInterval interval = [now timeIntervalSinceDate:self.lastTapDate];
+    self.lastTapDate = now;
     NSLog(@"间隔:%f",interval);
     if (self.timeInterval == 0.0) self.timeInterval = 5.0;
     if (interval < self.timeInterval && interval) return;

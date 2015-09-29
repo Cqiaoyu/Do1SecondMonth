@@ -14,7 +14,7 @@
 static const char *lastTapDateKey = "lastTapDate";
 static const char *timeIntervalKey = "timeInterval";
 
-@implementation UIControl (SingleTapButton)
+@implementation UIControl (ControlTapButton)
 
 - (void)setTimeInterval:(NSTimeInterval)timeInterval{
     objc_setAssociatedObject(self, timeIntervalKey, @(timeInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -35,13 +35,15 @@ static const char *timeIntervalKey = "timeInterval";
     NSTimeInterval interval = [now timeIntervalSinceDate:self.lastTapDate];
     self.lastTapDate = now;
     NSLog(@"间隔:%f",interval);
-    if (self.timeInterval == 0.0) self.timeInterval = 5.0;
+    NSLog(@"设置间隔:%f",self.timeInterval);
+    if (self.timeInterval == 0.0) self.timeInterval = .5;//默认为.5s
     if (interval < self.timeInterval && interval) return;
     [self SingleTap_sendAction:sel to:target forEvent:event];
 }
 @end
 
 @implementation SingleTap
+
 + (void)load{
     [super load];
     Method tapAction = class_getInstanceMethod([UIControl class], @selector(sendAction:to:forEvent:));
@@ -50,4 +52,6 @@ static const char *timeIntervalKey = "timeInterval";
 }
 
 @end
+
+
 

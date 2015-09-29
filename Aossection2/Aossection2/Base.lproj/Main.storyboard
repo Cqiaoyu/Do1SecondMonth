@@ -26,25 +26,25 @@
                                     <action selector="tapAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3O3-nF-xIY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-5L-G7H">
-                                <rect key="frame" x="277" y="323" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0b-67-Eq4">
+                                <rect key="frame" x="277" y="332" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tap2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GBp-PE-6aY"/>
+                                    <action selector="tap2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qS2-me-tEk"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PBe-5L-G7H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="277" id="6f8-mM-SbF"/>
-                            <constraint firstAttribute="trailing" secondItem="PBe-5L-G7H" secondAttribute="trailing" constant="277" id="Amb-VX-Rj4"/>
+                            <constraint firstItem="w0b-67-Eq4" firstAttribute="top" secondItem="ZlG-9R-P2Z" secondAttribute="bottom" constant="17" id="Erd-Mg-yAL"/>
+                            <constraint firstItem="w0b-67-Eq4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="277" id="F4n-Je-cKZ"/>
                             <constraint firstAttribute="centerX" secondItem="ZlG-9R-P2Z" secondAttribute="centerX" id="PId-FN-TRW"/>
                             <constraint firstAttribute="centerY" secondItem="ZlG-9R-P2Z" secondAttribute="centerY" id="WcK-14-Fsd"/>
-                            <constraint firstItem="PBe-5L-G7H" firstAttribute="top" secondItem="ZlG-9R-P2Z" secondAttribute="bottom" constant="8" id="ZSW-XJ-aD9"/>
+                            <constraint firstAttribute="trailing" secondItem="w0b-67-Eq4" secondAttribute="trailing" constant="277" id="nR0-gs-Std"/>
                         </constraints>
                     </view>
                     <connections>

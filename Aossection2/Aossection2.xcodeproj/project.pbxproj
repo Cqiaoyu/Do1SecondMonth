@@ -430,6 +430,7 @@
 				2A35E10E1BB134730034AD60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A35E10F1BB134730034AD60 /* Build configuration list for PBXNativeTarget "Aossection2Tests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +439,7 @@
 				2A35E1111BB134730034AD60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

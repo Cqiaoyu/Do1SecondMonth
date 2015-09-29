@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface SingleTap:NSObject
+
+@interface SingleTap : NSObject
+
 @end
 
-@interface UIControl (SingleTapButton)
+@interface UIControl (ControlTapButton)
 @property (assign, nonatomic) NSTimeInterval timeInterval;
 @property (strong, nonatomic) NSDate *lastTapDate;
 @end
